@@ -15,7 +15,6 @@ namespace Arithmetic.SortArithmetic
                         SortTestHelper<T>.Swap(arr, j, j - 1);
                     else
                         break;
-
                 }
             }
             return arr;
