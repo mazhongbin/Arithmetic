@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 
 namespace Arithmetic.Common
 {
@@ -53,7 +51,6 @@ namespace Arithmetic.Common
                 Console.WriteLine("Array is not Sort!");
                 return;
             }
-
             Console.WriteLine($"Arithmetic:{sortName},UseTime:{stopwatch.ElapsedMilliseconds} ms");
         }
     }
