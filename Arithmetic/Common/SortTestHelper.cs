@@ -5,6 +5,13 @@ namespace Arithmetic.Common
 {
     public class SortTestHelper<T> where T : IComparable<T>
     {
+        /// <summary>
+        /// 生成随机数组
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="rangeL"></param>
+        /// <param name="rangeR"></param>
+        /// <returns></returns>
         public static int[] GenerateRandomArray(int n, int rangeL, int rangeR)
         {
             if (rangeR < rangeL)
@@ -13,6 +20,27 @@ namespace Arithmetic.Common
             Random random = new Random();
             for (int i = 0; i < n; i++)
                 arr[i] = random.Next(rangeR - rangeL) + rangeL;
+            return arr;
+        }
+
+        /// <summary>
+        /// 生成一个近乎有序的数组
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="swapTime"></param>
+        /// <returns></returns>
+        public static int[] GenerateNearlyOrderedArray(int n, int swapTime)
+        {
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++)
+                arr[i] = i;
+            Random random = new Random();
+            for (int i = 0; i < swapTime; i++)
+            {
+                int posx = random.Next() % n;
+                int posy = random.Next() % n;
+                SortTestHelper<int>.Swap(arr, posx, posy);
+            }
             return arr;
         }
 
@@ -54,13 +82,19 @@ namespace Arithmetic.Common
             Console.WriteLine($"Arithmetic:{sortName},UseTime:{stopwatch.ElapsedMilliseconds} ms");
         }
 
-        public static T[] CopyArray(T[] arr,int n)
+        public static T[] CopyArray(T[] arr, int n)
         {
             T[] newArr = new T[n];
             Array.Copy(arr, newArr, n);
             return newArr;
         }
 
+        /// <summary>
+        /// 二分查找索引
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static int Search(T[] arr, int key)
         {
             int left = 0;
@@ -76,6 +110,14 @@ namespace Arithmetic.Common
             return left;
         }
 
+        /// <summary>
+        /// 二分查找索引，递归实现
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static int SearchRecursion(T[] arr, int left, int right, T key)
         {
             if (right < left)

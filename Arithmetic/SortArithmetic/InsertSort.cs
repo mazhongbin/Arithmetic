@@ -19,6 +19,25 @@ namespace Arithmetic.SortArithmetic
             }
             return arr;
         }
+        /// <summary>
+        /// V2主要改进了交换的次数，因为交换需要开辟新的空间
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+
+        public static T[] SortV2(T[] arr, int n)
+        {
+            for (int i = 1; i < n; i++)
+            {
+                T e = arr[i];
+                int j;
+                for (j = i; j > 0 && arr[j - 1].CompareTo(e) > 0; j--)
+                    arr[j] = arr[j - 1];
+                arr[j] = e;
+            }
+            return arr;
+        }
 
         public static T[] SortDichotomy(T[] arr, int n)
         {
