@@ -17,5 +17,27 @@ namespace Arithmetic.SortArithmetic
             }
             return arr;
         }
+
+        public static T[] CocktailSort(T[] arr, int n)
+        {
+            int left = 0;
+            int right = n - 1;
+            while (left < right)
+            {
+                for (int i = left; i <= right; i++)
+                {
+                    if (arr[left].CompareTo(arr[i]) > 0)
+                        SortTestHelper<T>.Swap(arr, left, i);
+                }
+                left++;
+                for (int i = right; i > left; i--)
+                {
+                    if (arr[right].CompareTo(arr[i]) < 0)
+                        SortTestHelper<T>.Swap(arr, right, i);
+                }
+                right--;
+            }
+            return arr;
+        }
     }
 }

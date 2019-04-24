@@ -53,5 +53,31 @@ namespace Arithmetic.Common
             }
             Console.WriteLine($"Arithmetic:{sortName},UseTime:{stopwatch.ElapsedMilliseconds} ms");
         }
+
+        public static int Search(T[] arr, int key)
+        {
+            int left = 0;
+            int right = arr.Length - 1;
+            while (left <= right)
+            {
+                int middle = left + (right - left) / 2;
+                if (key.CompareTo(arr[middle]) < 0)
+                    right = middle - 1;
+                else
+                    left = middle + 1;
+            }
+            return left;
+        }
+
+        public static int SearchRecursion(T[] arr, int left, int right, T key)
+        {
+            if (right < left)
+                return left;
+            int mid = left + (right - left) / 2;
+            if (arr[mid].CompareTo(key) < 0)
+                return SearchRecursion(arr, mid + 1, right, key);
+            else
+                return SearchRecursion(arr, left, mid - 1, key);
+        }
     }
 }
