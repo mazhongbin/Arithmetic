@@ -3,6 +3,10 @@ using System;
 
 namespace Arithmetic.SortArithmetic
 {
+    /// <summary>
+    /// 插入排序的进阶就是shell sort（希尔排序）
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class InsertSort<T> where T : IComparable<T>
     {
         public static T[] Sort(T[] arr, int n)
