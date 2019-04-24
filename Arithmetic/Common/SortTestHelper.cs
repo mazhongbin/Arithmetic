@@ -54,6 +54,13 @@ namespace Arithmetic.Common
             Console.WriteLine($"Arithmetic:{sortName},UseTime:{stopwatch.ElapsedMilliseconds} ms");
         }
 
+        public static T[] CopyArray(T[] arr,int n)
+        {
+            T[] newArr = new T[n];
+            Array.Copy(arr, newArr, n);
+            return newArr;
+        }
+
         public static int Search(T[] arr, int key)
         {
             int left = 0;
