@@ -9,13 +9,15 @@ namespace Arithmetic
         static void Main(string[] args)
         {
             int n = 50000;
-            //int[] arr = SortTestHelper<int>.GenerateRandomArray(n, 0, n);
+            int[] arr = SortTestHelper<int>.GenerateRandomArray(n, 0, n);
 
-            int[] arr = SortTestHelper<int>.GenerateNearlyOrderedArray(n, 10);
+            //int[] arr = SortTestHelper<int>.GenerateNearlyOrderedArray(n, 10);
 
             int[] arr1 = SortTestHelper<int>.CopyArray(arr, n);
 
             int[] arr2 = SortTestHelper<int>.CopyArray(arr, n);
+
+            int[] arr3 = SortTestHelper<int>.CopyArray(arr, n);
 
             //SortTestHelper<int>.TestSort(nameof(SelectSort<int>), (arr, n) => { SelectSort<int>.Sort(arr, n); }, arr, n);
 
@@ -28,6 +30,8 @@ namespace Arithmetic
             SortTestHelper<int>.TestSort(nameof(InsertSort<int>), (arr1, n) => { InsertSort<int>.SortV2(arr1, n); }, arr1, n);
 
             SortTestHelper<int>.TestSort(nameof(InsertSort<int>), (arr2, n) => { InsertSort<int>.SortDichotomy(arr2, n); }, arr2, n);
+
+            SortTestHelper<int>.TestSort(nameof(MergeSort<int>), (arr3, n) => { MergeSort<int>.Sort(arr3, n); }, arr3, n);
 
 
 

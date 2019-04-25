@@ -23,6 +23,27 @@ namespace Arithmetic.SortArithmetic
             }
             return arr;
         }
+
+        /// <summary>
+        /// 对arr[left,right]进行插入排序
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static T[] Sort(T[] arr, int left, int right)
+        {
+            for (int i = left + 1; i <= right; i++)
+            {
+                T item = arr[i];
+                int j;
+                for (j = i; j > left && arr[j - 1].CompareTo(item) > 0; j--)
+                    arr[j] = arr[j - 1];
+                arr[j] = item;
+            }
+            return arr;
+        }
+
         /// <summary>
         /// V2主要改进了交换的次数，因为交换需要开辟新的空间
         /// </summary>
