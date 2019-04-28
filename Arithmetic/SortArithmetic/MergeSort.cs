@@ -10,6 +10,21 @@ namespace Arithmetic.SortArithmetic
             return arr;
         }
 
+        public static T[] SortBU(T[] arr, int n)
+        {
+            for (int sz = 1; sz < n; sz += sz)
+            {
+                for (int i = 0; i + sz < n; i += 2 * sz)
+                    Merge(arr, i, i + sz - 1, Min(i + sz + sz - 1, n - 1));
+            }
+            return arr;
+        }
+
+        private static int Min(int n1, int n2)
+        {
+            return n1 > n2 ? n2 : n1;
+        }
+
         /// <summary>
         /// 递归的归并排序 [left,right]区间的排序
         /// </summary>
